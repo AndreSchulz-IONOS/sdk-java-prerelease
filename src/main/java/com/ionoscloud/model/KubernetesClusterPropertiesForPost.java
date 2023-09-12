@@ -59,7 +59,27 @@ public class KubernetesClusterPropertiesForPost {
   @SerializedName(SERIALIZED_NAME_S3_BUCKETS)
   private List<S3Bucket> s3Buckets = null;
 
+
+  public static final String SERIALIZED_NAME_PUBLIC = "public";
+  @SerializedName(SERIALIZED_NAME_PUBLIC)
+  private Boolean _public = true;
+
   
+  public static final String SERIALIZED_NAME_LOCATION = "location";
+  @SerializedName(SERIALIZED_NAME_LOCATION)
+  private String location;
+
+  
+  public static final String SERIALIZED_NAME_NAT_GATEWAY_IP = "natGatewayIp";
+  @SerializedName(SERIALIZED_NAME_NAT_GATEWAY_IP)
+  private String natGatewayIp;
+
+  
+  public static final String SERIALIZED_NAME_NODE_SUBNET = "nodeSubnet";
+  @SerializedName(SERIALIZED_NAME_NODE_SUBNET)
+  private String nodeSubnet;
+
+
 
   public KubernetesClusterPropertiesForPost apiSubnetAllowList(List<String> apiSubnetAllowList) {
     
@@ -138,7 +158,6 @@ public class KubernetesClusterPropertiesForPost {
   public void setMaintenanceWindow(KubernetesMaintenanceWindow maintenanceWindow) {
     this.maintenanceWindow = maintenanceWindow;
   }
-
 
 
   public KubernetesClusterPropertiesForPost name(String name) {
@@ -252,4 +271,73 @@ public KubernetesClusterPropertiesForPost(String Name) {
 public KubernetesClusterPropertiesForPost() {
 }
 
+
+    public KubernetesClusterPropertiesForPost _public(Boolean _public) {
+    
+        this._public = _public;
+        return this;
+    }
+    
+    /**
+     * The indicator if the cluster is public or private. Be aware that setting it to false is currently in beta phase.
+     * 
+     * @return _public
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(value = "The indicator if the cluster is public or private. Be aware that setting it to false is currently in beta phase.")
+    
+    public Boolean getPublic() {
+        return _public;
+    }
+    
+    public void setPublic(Boolean _public) {
+        this._public = _public;
+    }
+    
+    public KubernetesClusterPropertiesForPost location(String location) {
+    
+        this.location = location;
+        return this;
+    }
+    
+    /**
+     * The location of the cluster if the cluster is private. This property is immutable. The location must be enabled for
+     * your contract or you must have a Datacenter within that location. This attribute is mandatory if the cluster is
+     * private.
+     * 
+     * @return location
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(example = "de/fra", value = "The location of the cluster if the cluster is private. This property is immutable. The location must be enabled for your contract or you must have a Datacenter within that location. This attribute is mandatory if the cluster is private.")
+    
+    public String getLocation() {
+        return location;
+    }
+    
+    public void setLocation(String location) {
+        this.location = location;
+    }
+    
+    public KubernetesClusterPropertiesForPost natGatewayIp(String natGatewayIp) {
+    
+        this.natGatewayIp = natGatewayIp;
+        return this;
+    }
+    
+    /**
+     * The nat gateway IP of the cluster if the cluster is private.
+     * 
+     * @return natGatewayIp
+     **/
+    @javax.annotation.Nullable
+    @ApiModelProperty(example = "198.51.100.100", value = "The nat gateway IP of the cluster if the cluster is private.")
+    
+    public String getNatGatewayIp() {
+        return natGatewayIp;
+    }
+    
+    public void setNatGatewayIp(String natGatewayIp) {
+        this.natGatewayIp = natGatewayIp;
+    }
+    
 }
